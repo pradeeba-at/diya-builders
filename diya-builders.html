@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>DIYA BUILDERS – Your trusted construction expert</title>
+<style>
+  :root {
+    --black: #0e0e0e;
+    --off-white: #f9f7f4;
+    --blue: #2d77a7;
+    --blue-light: #a2CCE7;
+    --gray: #6b6b6b;
+    --light-gray: #ececec;
+    --dark-blue: #18435E;
+    --section-pad: 100px 60px;
+    --font-display: 'Libre Baskerville', Georgia, 'Times New Roman', serif;
+    --font-body: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--off-white);
+    color: var(--black);
+    font-family: var(--font-body);
+    font-weight: 400;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top:0; left:0; width:100%; z-index:100;
+    display:flex;  flex-direction: column; 
+    align-items:center; justify-content:space-between;
+    padding: 15px 40px;
+    background: rgba(255,255,255,0.95);
+    border-bottom: 1px solid rgba(245, 252, 255,0.25);
+    transition: box-shadow 0.3s;
+  }
+  nav.scrolled { box-shadow: 0 2px 30px rgba(0,0,0,0.08); }
+
+  .nav-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+  
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 2.5rem; font-weight: 700;
+    letter-spacing: 2px; color: var(--blue);
+    text-decoration: none;
+    margin-left: 0;
+  }
+  .nav-logo span { color: var(--blue); }
+
+  .nav-links { display:flex; gap:36px; list-style:none; 
+  flex-wrap: wrap; justify-content: center;}
+
+  .nav-links a {
+    text-decoration:none; color: var(--black);
+    font-size: 0.85rem; font-weight:600; letter-spacing:1px;
+    text-transform:uppercase; position:relative; padding-bottom:4px;
+  }
+  .nav-links a::after {
+    content:''; position:absolute; bottom:0; left:0;
+    width:0; height:1.5px; background:var(--blue);
+    transition: width 0.3s;
+  }
+  .nav-links a:hover {
+  color: #2D77A7;
+}
+  .nav-links a:hover::after { width:100%; }
+
+  /* ── HERO ── */
+  #home {
+    min-height: 100vh;
+    display:grid; grid-template-columns: 1fr 1fr; align-items:center;
+    padding: 160px 60px 80px;
+    position: relative; overflow: hidden;
+    background: linear-gradient(180deg, #CFE9F7  0%, #ffffff 55%);
+    scroll-margin-top: 90px;
+  }
+  #home::after {
+    content:''; position:absolute;
+    right: -80px; bottom: -80px;
+    width: 520px; height: 520px; border-radius: 50%;
+    /* background: radial-gradient(circle, rgba(162,204,231,0.15) 0%, transparent 70%); */
+    pointer-events:none;
+  }
+
+  .hero-tag {
+    font-size:1.0rem; font-weight:600; letter-spacing:3px;
+    text-transform:uppercase; color:var(--blue);
+    margin-bottom:24px; position:relative; z-index:1;
+    animation: fadeUp 0.8s ease both;
+  }
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight:450; line-height:1.1;
+    color: var(--black); z-index:1; max-width: 700px;
+    animation: fadeUp 0.9s 0.15s ease both;
+    position:relative;
+  }
+  .hero-title em { color:var(--blue); font-style:normal; }
+
+  .hero-sub {
+    margin-top:28px; max-width:480px;
+    font-size:1.05rem; line-height:1.85;
+    color:var(--gray); z-index:1; position:relative;
+    animation: fadeUp 0.9s 0.3s ease both;
+  }
+
+  .hero-cta {
+    margin-top:44px; display:flex; gap:20px; flex-wrap:wrap;
+    z-index:1; position:relative;
+    animation: fadeUp 0.9s 0.45s ease both;
+  }
+  .btn-primary {
+    background: var(--dark-blue); color: var(--off-white);
+    padding: 15px 36px; font-size:0.85rem; font-weight:600;
+    letter-spacing:1.5px; text-transform:uppercase;
+    text-decoration:none; border:2px solid var(--dark-blue);
+    transition: background 0.3s, color 0.3s, border-color 0.3s;
+  }
+  .btn-primary:hover { background: var(--blue); border-color: var(--blue); color:var(--off-white); }
+
+  .btn-outline {
+    background:transparent; color:var(--black);
+    padding:15px 36px; font-size:0.85rem; font-weight:600;
+    letter-spacing:1.5px; text-transform:uppercase;
+    text-decoration:none; border:2px solid var(--black);
+    transition: background 0.3s, color 0.3s;
+  }
+  .btn-outline:hover { background:var(--blue); border-color: var(--blue); color:var(--off-white); }
+
+  .hero-stats {
+    position:absolute; right:60px; bottom:80px;
+    display:flex; gap:48px; z-index:1;
+    animation: fadeUp 0.9s 0.6s ease both;
+  }
+  .stat-item { text-align:center; }
+  .stat-num {
+    font-family: var(--font-display);
+    font-size:2.6rem; font-weight:700; color:var(--blue); line-height:1;
+  }
+  .stat-label {
+    font-size:0.72rem; letter-spacing:2px;
+    text-transform:uppercase; color:var(--gray); margin-top:6px;
+  }
+
+  .hero-content {
+    z-index:1;
+  }
+  .hero-image {
+    display:flex; justify-content:center; align-items:center;
+    z-index:1;
+    margin-top: -30px;
+  }
+  .hero-image img {
+    max-width:100%; height:auto; border-radius:8px;
+  }
+
+  /* ── SECTION BASE ── */
+  section { padding: var(--section-pad); }
+
+  .section-tag {
+    font-size:1rem; font-weight:600; letter-spacing:3px;
+    text-transform:uppercase; color:var(--blue); margin-bottom:16px;
+  }
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight:700; line-height:1.2; color:var(--black); max-width:560px;
+  }
+  .section-title em { color:var(--blue); font-style:normal; }
+  .divider { width:56px; height:3px; background:var(--blue); margin:24px 0 36px; }
+
+  /* ── ABOUT ── */
+  #about {
+    background: var(--dark-blue); color: var(--off-white);
+    display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center;
+    padding: 50px 50px;
+    scroll-margin-top: 90px;
+  }
+  .light-highlight {
+  color: var(--blue-light);
+}
+  #about .section-title { color:var(--off-white); max-width:100%; }
+  #about .section-tag { color:var(--blue-light); }
+  #about p { color: rgba(249,247,244,0.85); font-size:1rem; line-height:1.9; }
+  #about p + p { margin-top:16px; }
+
+  .about-right { display:flex; flex-direction:column; gap:24px; }
+  .about-card {
+    border:1px solid rgba(249,247,244,0.25); padding:28px 32px;
+    transition: border-color 0.3s, background 0.3s;
+  }
+  .about-card:hover { border-color:var(--blue); background:rgba(207,233,247,0.15); }
+  .about-card h4 {
+    font-family: var(--font-display);
+    font-size:1.1rem; color:var(--blue-light); margin-bottom:8px;
+  }
+  .about-card p { font-size:0.9rem; color:rgba(249,247,244,0.62); line-height:1.7; }
+
+  /* ── SERVICES ── */
+  #services { 
+    background: linear-gradient(135deg, #b0d5fa4b  0%, #ffffff 50%, #b0d5fa42 100%);
+     padding: 50px 60px; 
+     scroll-margin-top: 90px; 
+  }
+
+  .services-grid {
+    display:grid; grid-template-columns:repeat(3,1fr); gap:28px;
+  }
+  .service-card {
+    border: 1px solid var(--light-gray); padding:40px 32px;
+    position:relative; overflow:hidden;
+    transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  }
+  .service-card::before {
+    content:''; position:absolute; top:0; left:0;
+    width:0; height:3px; background:var(--blue);
+    transition: width 0.4s ease;
+  }
+  .service-card:hover::before { width:100%; }
+  .service-card:hover {
+    border-color:rgba(72, 150, 201, 0.4);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(122, 176, 226, 0.08);
+  }
+  .service-icon { font-size:2.2rem; margin-bottom:20px; display:block; }
+  .service-card h3 {
+    font-family: var(--font-display);
+    font-size:1.25rem; font-weight:700;
+    margin-bottom:14px; color:var(--black);
+  }
+  .service-card p { font-size:0.9rem; line-height:1.8; color:var(--gray); }
+
+    /* ── INFRA ── */
+#infra { background: var(--off-white); }
+
+.infra-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  margin-top: 0px;
+  align-items: start;
+}
+
+.rmc-card {
+  /* background: var(--dark-blue); */
+  /* padding: 48px 40px; */
+  position: relative;
+  overflow: hidden;
+  /* min-height: 400px; */
+}
+.rmc-card::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 180px; height: 180px;
+  pointer-events: none;
+}
+/* .rmc-card .section-title{color: var(--off-white);} */
+
+.rmc-card h3 {
+  font-family: var(--font-display);
+  font-size: 2rem; font-weight: 700;
+  color: var(--black); line-height: 1.2;
+  margin-bottom: 16px;
+}
+.rmc-location {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+.rmc-location span {
+  color: var(--blue);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.rmc-card > p {
+  color: var(--gray);
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+.rmc-image {
+  width: 100%;
+  height: 280px;
+  display: block;
+    /* aspect-ratio: 1 / 1; */
+  object-fit: cover;
+  border-radius: 6px;
+  margin-top: 16px;
+}
+/* .rmc-footer {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(201,168,76,0.2);
+}
+.rmc-footer h5 {
+  color: var(--blue);
+  font-size: 0.72rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.rmc-footer p {
+  color: rgba(249,247,244,0.6);
+  font-size: 0.88rem;
+  line-height: 1.7;
+} */
+
+.machinery-title {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 8px;
+}
+.machinery-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.machinery-item {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 20px 24px;
+  border: 1px solid var(--light-gray);
+  transition: border-color 0.3s;
+}
+.machinery-item:hover { border-color: var(--blue); }
+.machinery-icon {
+  width: 36px; height: 36px;
+ display: flex; align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+.machinery-item span:last-child {
+  font-size: 0.95rem;
+  color: var(--black);
+  font-weight: 500;
+}
+
+/* ── HIGHLIGHTS ── */
+#highlights { background: linear-gradient(90deg, #ffffff 50%, #b0d5fa42 100%);
+    ; }
+#highlights .section-tag { color:var(--blue); }
+/* #highlights p { color: black; font-size:1rem; line-height:1.9; } */
+
+.highlights-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+.highlight-card {
+  border: 1px solid var(--light-gray);
+  padding: 40px 36px;
+  transition: border-color 0.3s;
+}
+.highlight-card:hover { border-color: var(--blue); }
+
+.highlight-card-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+.highlight-card-header span { font-size: 1.6rem; }
+.highlight-card-header h3 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--blue);
+}
+.govt-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.govt-item {
+  padding: 18px 20px;
+  background: rgba(195, 221, 255, 0.17);
+  border-left: 3px solid var(--blue);
+}
+.govt-item h5 {
+  color: var(--blue);
+  font-size: 1.2rem;
+  font-weight: 600;
+  font-family: var(--font-display);
+  margin-bottom: 4px;
+}
+.govt-item p {
+  font-size: 1rem;
+}
+
+.strength-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.strength-card {
+  border: 1px solid var(--light-gray);
+  padding: 32px 36px;
+  transition: border-color 0.3s;
+}
+.strength-card:hover { border-color: var(--blue); }
+.strength-card-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+.strength-card-header span { font-size: 1.6rem; }
+.strength-card-header h3 {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--blue);
+}
+.strength-card p {
+  color: black;
+  font-size: 0.92rem;
+  line-height: 1.8;
+}
+.strength-card strong { color: var(--white); }
+
+@media(max-width:900px){
+  .infra-grid { grid-template-columns: 1fr; gap: 40px; }
+  .highlights-grid { grid-template-columns: 1fr; }
+}
+
+
+  /* ── PROJECTS ── */
+  #projects { background: #f4f1eb; scroll-margin-top: 90px; }
+  .projects-grid {
+    display:grid; grid-template-columns: repeat(2,1fr); gap:20px;
+    perspective: 1000px;
+  }
+  .project-card {
+    background: linear-gradient(135deg,#0f2027,#203a43); position:relative;
+    aspect-ratio:4/3;
+    overflow:hidden;
+    cursor: pointer;
+  }
+  .project-card-inner {
+    width:100%; height:100%; position:relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease;
+  }
+  .project-card:hover .project-card-inner {
+    transform: rotateY(180deg);
+  }
+  .card-front, .card-back {
+    position:absolute;
+    inset:0;
+    backface-visibility: hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .card-front {
+    z-index:2;
+  }
+  .card-back {
+    transform: rotateY(180deg);
+    background-image: url('hospital.jpeg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  /* .project-card:first-child { grid-column: span 2; aspect-ratio: unset; min-height: 300px; } */
+
+  .project-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-align: center;
+  height: 100%;
+  /* transform: translateY(0); */
+  transition: transform 0.3s ease;
+}
+.project-card:hover .project-content {
+  transform: translateY(-5px);
+}
+  .project-img-placeholder {
+    /* position:absolute;  */
+    /* inset:0;
+    display:flex; align-items:center; justify-content:center; */
+    font-size:3.5rem; transition: transform 0.5s;
+  }
+  .project-card:hover .project-img-placeholder { transform: scale(1.06); }
+
+  .project-info {
+    /* position:relative; */
+    position: static;
+    z-index:1; 
+    padding: 0;
+    /* padding:24px 28px; */
+    background: transparent;
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    gap:10px;
+  }
+  .project-type { font-size:1.2rem; letter-spacing:2px; text-transform:uppercase; color:var(--blue-light); }
+  .project-name {
+    font-family: var(--font-display);
+    font-size:1.5rem; color:#fff; margin-top:4px;
+    line-height:1.2;
+  }
+   .project-details {
+    font-family: var(--font-display);
+    font-size:0.9rem; color:#fff; margin-top:4px;
+  }
+  .projects-cta { margin-top:40px; text-align:center; }
+
+  /* ── CONTACT ── */
+  #contact {
+    background:var(--dark-blue); 
+    color:var(--off-white);
+    display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start;
+    scroll-margin-top: 90px;
+  }
+  #contact .section-title { color:var(--off-white); }
+  #contact .section-tag { color:var(--blue-light); }
+  /* #contact > div:first-child > p { color:rgba(249,247,244,0.65); line-height:1.9; font-size:1rem; } */
+
+  .contact-detail { display:flex; align-items:flex-start; gap:16px; margin-top:28px; }
+  .contact-detail-icon { font-size:1.3rem; }
+  .contact-detail-text h5 {
+    color:var(--blue-light); font-size:0.72rem;
+    letter-spacing:2px; text-transform:uppercase; margin-bottom:4px;
+  }
+  .contact-detail-text p { color:rgba(249,247,244,0.7); font-size:0.9rem; }
+
+  .light-highlight {
+  color: var(--blue-light);
+  }
+
+  .contact-form { display:flex; flex-direction:column; gap:18px; }
+  .form-row { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+  .form-field { display:flex; flex-direction:column; gap:8px; }
+  .form-field label {
+    font-size:0.7rem; letter-spacing:2px;
+    text-transform:uppercase; color:rgba(244, 246, 249, 0.5);
+  }
+  .form-field input,
+  .form-field select,
+  .form-field textarea {
+    background:rgba(246, 250, 252, 0.07);
+    border:1px solid rgba(76, 143, 201, 0.2);
+    color:var(--off-white); padding:14px 16px;
+    font-family: var(--font-body); font-size:0.9rem;
+    outline:none; transition:border-color 0.3s; resize:none;
+  }
+  .form-field input:focus,
+  .form-field select:focus,
+  .form-field textarea:focus { border-color:var(--blue); }
+  .form-field select option { background:#656565; color:#fff; }
+  .btn-submit {
+    background:var(--blue-light); color:var(--black);
+    padding:15px 40px; font-size:0.85rem; font-weight:700;
+    letter-spacing:1.5px; text-transform:uppercase;
+    border:none; cursor:pointer;
+    transition: background 0.3s, transform 0.2s;
+    align-self:flex-start; margin-top:6px;
+  }
+  .btn-submit:hover { background:var(--blue); transform:translateY(-2px); }
+
+  /* ── FOOTER ── */
+  footer {
+    background:#02253d; padding:32px 60px;
+    display:flex; align-items:center; justify-content:space-between;
+    flex-wrap:wrap; gap:16px;
+  }
+  .footer-logo {
+    font-family: var(--font-display);
+    font-size:1.4rem; color:var(--blue-light); letter-spacing:2px;
+  }
+  /* .footer-logo span { color:var(--blue); } */
+  footer p { font-size:0.78rem; color:rgba(249,247,244,0.35); letter-spacing:1px; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity:0; transform:translateY(28px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+  .reveal {
+    opacity:0; transform:translateY(20px);
+    /* transition: opacity 0.7s ease, transform 0.7s ease; */
+    animation: revealFade 0.7s ease forwards;
+  }
+  /* .reveal.visible { opacity:1; transform:translateY(0); } */
+@keyframes revealFade {
+  to { opacity:1; transform:translateY(0); }
+}
+
+  /* ── RESPONSIVE ── */
+  @media(max-width:900px){
+    nav { padding:18px 28px; }
+    .nav-links { gap:20px; }
+    #home { padding:120px 28px 80px; grid-template-columns: 1fr; align-items:flex-start; }
+    .hero-image { margin-top:0; z-index:0; }
+    .hero-content, .hero-cta { position:relative; z-index:2; }
+    .hero-stats { right:28px; bottom:40px; gap:28px; }
+    .stat-num { font-size:2rem; }
+    #about, #contact { grid-template-columns:1fr; gap:40px; padding:70px 28px; }
+    #services, #projects { padding:70px 28px; }
+    .services-grid { grid-template-columns:1fr 1fr; }
+    .projects-grid { grid-template-columns:1fr 1fr; }
+    .project-card:first-child { grid-column:span 2; }
+    .form-row { grid-template-columns:1fr; }
+    footer { padding:28px; flex-direction:column; text-align:center; }
+  }
+  @media(max-width:600px){
+    /* .nav-links { display:none; } */
+  .nav-links { 
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    padding: 10px 0 0 0;
+  }
+  nav {
+    flex-direction: column;
+    padding: 16px 20px;
+  }
+    .hero-stats { position:static; margin-top:48px; justify-content:flex-start; }
+    .services-grid { grid-template-columns:1fr; }
+    .projects-grid { grid-template-columns:1fr; }
+    .project-card:first-child { grid-column:span 1; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <!-- Top row -->
+  <!-- <div style="display: flex;align-items: left;gap: 4px;"> -->
+  <div class="nav-top">
+    <img src="logo.jpeg" alt="icon" width="50">
+     <a href="#home" class="nav-logo">DIYA BUILDERS</a>
+  </div>
+<!-- </div> -->
+ 
+<!-- bottom row -->
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#infra">Infra</a></li>
+    <li><a href="#highlights">Highlights</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-content">
+    <p class="hero-tag">Residential &amp; Commercial Construction</p>
+    <h1 class="hero-title">Building <em>Trust.</em><br/>Creating <em>Quality.</em></h1>
+    <p class="hero-sub">DIYA BUILDERS delivers precision-crafted residential and commercial construction with a commitment to quality, timelines, and your vision.</p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn-primary">View Our Work</a>
+      <a href="#contact" class="btn-outline">Get a Quote</a>
+    </div>
+  </div>
+  <div class="hero-image">
+    <img src="home_discussing.jpeg" alt="Discussing">
+  </div>
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-num">12+</div>
+      <div class="stat-label">Years Experience</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">200+</div>
+      <div class="stat-label">Projects Done</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">98%</div>
+      <div class="stat-label">Client Satisfaction</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="reveal">
+    <p class="section-tag">Who We Are</p>
+    <h2 class="section-title">More Than a Builder — A <span class="light-highlight">Trusted</span> Partner</h2>
+    <div class="divider"></div>
+    <p>DIYA BUILDERS, is a professionally driven construction company dedicated to delivering excellence. We are committed to providing reliable, high-quality building 
+      solutions that set benchmark in durability and design.</p>
+    <p>From intimate residences to large-scale commercial developments, our team brings the same dedication and precision to every project — big or small.</p>
+  </div>
+  <div class="about-right reveal">
+    <div class="about-card">
+      <h4>Our Mission</h4>
+      <p>To deliver exceptional construction solutions that exceed expectations in quality, safety, and design — on time and within budget.</p>
+    </div>
+    <div class="about-card">
+      <h4>Our Values</h4>
+      <p>Transparency, craftsmanship, and accountability drive everything we do. We build trust before we build buildings.</p>
+    </div>
+    <div class="about-card">
+      <h4>Our Promise</h4>
+      <p>Every structure we build is more than just a project - it is a long-term promise of quality, trust, and client satisfaction.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="reveal">
+    <p class="section-tag">What We Do</p>
+    <h2 class="section-title">End-to-End Construction <em>Services</em></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <span class="service-icon">🏠</span>
+      <h3>Residential Construction</h3>
+      <p>Custom homes, villas, and apartment complexes built with superior materials and meticulous attention to detail. Your dream home, built right.</p>
+    </div>
+    <div class="service-card reveal">
+      <span class="service-icon">🏢</span>
+      <h3>Commercial Construction</h3>
+      <p>Office complexes, retail spaces, warehouses, and industrial facilities designed for functionality, compliance, and lasting performance.</p>
+    </div>
+    <div class="service-card reveal">
+      <span class="service-icon">📐</span>
+      <h3>Architectural Design & Planning</h3>
+      <p>Comprehensive architectural and structural planning services that bridge your vision with practical, code-compliant execution.</p>
+    </div>
+    <div class="service-card reveal">
+      <span class="service-icon">🏡</span>
+      <h3>Renovation & Remodeling</h3>
+      <p>Modernize existing spaces with structural upgrades, interior redesigns, and full-scale renovations that breathe new life into old buildings.</p>
+    </div>
+    <div class="service-card reveal">
+      <span class="service-icon">🏗️</span>
+      <h3>Project Management</h3>
+      <p>Full-cycle project oversight — from permits and procurement to contractor coordination and final inspection. We handle everything.</p>
+    </div>
+    <div class="service-card reveal">
+      <span class="service-icon">🔧</span>
+      <h3>Electrical & Plumbing works</h3>
+      <p>Reliable, safe and compliant industry-standard electrical and plumbing installations handled by certified professionals.</p>
+    </div>
+  </div>
+</section>
+
+<!-- INFRA FACILITIES -->
+<section id="infra">
+  <div class="reveal">
+    <p class="section-tag">Our Infrastructure</p>
+    <h2 class="section-title">Built to <em>Deliver</em> at Scale</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="infra-grid">
+
+    <div class="rmc-card reveal">
+      <!-- <p class="section-tag" style="color:var(--blue-light);">Own Facility</p> -->
+      <h3 class="section-title">Own <em>RMC</em> Plant</h3>
+      <div class="rmc-location">
+        <span>📍</span>
+        <span>Puliyampatti</span>
+      </div>
+      <p>Our own RMC plant ensures consistent quality, faster turnaround, and complete control over concrete supply for every project. 
+          Thereby reducing delays and maintaining grade consistency across all sites.</p>
+      <img src="rmc_plant.jpeg" alt="Our RMC plant" class="rmc-image">
+          <!-- <p>Our own Ready Mix Concrete plant ensures consistent quality, faster turnaround, and complete control over concrete supply for every project.</p> -->
+      <!-- <div class="rmc-footer">
+         <h5>Key Advantage</h5>
+        <p>In-house concrete production eliminates third-party dependency, reducing delays and maintaining grade consistency across all sites.</p>
+      </div>  -->
+    </div>
+
+    <div class="reveal">
+      <!-- <p class="section-tag">On-Site Capability</p> -->
+      <h3 class="machinery-title">Machinery &amp; Equipment</h3>
+      <div class="divider"></div>
+      <div class="machinery-list">
+        <div class="machinery-item">
+          <div class="machinery-icon">🔩</div>
+          <span>Concrete Mixers &amp; Vibrators</span>
+        </div>
+        <div class="machinery-item">
+          <div class="machinery-icon">🚛</div>
+          <span>Excavation &amp; Earthwork Equipment &amp; Trucks</span>
+        </div>
+        <div class="machinery-item">
+          <div class="machinery-icon">🏗️</div>
+          <span>Scaffolding &amp; Shuttering Systems</span>
+        </div>
+        <div class="machinery-item">
+          <div class="machinery-icon">🛠️</div>
+          <span>Finishing &amp; Plastering Tools</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- HIGHLIGHTS -->
+<section id="highlights">
+  <div class="reveal">
+
+ <p class="section-tag">Trusted public works</p>
+    <h2 class="section-title">Our Highlights</span></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="highlights-grid">
+
+    <div class="highlight-card reveal">
+      <div class="highlight-card-header">
+        <span>🏛️</span>
+        <h3>Government Projects</h3>
+      </div>
+      <div class="govt-list">
+        <div class="govt-item">
+          <h5>Highway Department Project</h5>
+          <p>Ottanchathram to Palani Highway</p>
+        </div>
+        <div class="govt-item">
+          <h5>Mandapam for Devotees</h5>
+          <p>6 Units, ~72,000 Sq ft</p>
+        </div>
+        <div class="govt-item">
+          <h5>Restrooms</h5>
+          <p>6 Units, ~36,000 Sq ft. Completed within 6 months</p>
+        </div>
+        <div class="govt-item">
+          <h5>Thoppampatty Union — Marriage Hall with Kitchen</h5>
+          <p>~10,000 Sq ft. Ongoing</p>
+        </div>
+        <div class="govt-item">
+          <h5>Senthil Medical Centre &amp; Hospital, Palani</h5>
+          <p>~6,600 Sq ft. Completed within 8 months</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="strength-cards reveal">
+      <div class="strength-card">
+        <div class="strength-card-header">
+          <span>🏗️</span>
+          <h3>Material Strength</h3>
+        </div>
+        <p>Over <strong>1,00,000 Sq ft</strong> of centering and shuttering materials available — ensuring uninterrupted progress across multiple simultaneous projects.</p>
+      </div>
+      <div class="strength-card">
+        <div class="strength-card-header">
+          <span>👷</span>
+          <h3>Skilled Labour Teams</h3>
+        </div>
+        <p>Dedicated skilled labour teams assigned per work type — masons, carpenters, electricians, plumbers — ensuring specialised execution at every stage.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="reveal">
+    <p class="section-tag">Our Portfolio</p>
+    <h2 class="section-title">Projects That Speak for Themselves</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="projects-grid">
+    <div class="project-card reveal">
+      <div class="project-card-inner">
+        <div class="card-front">
+          <div class="project-content">
+          <div class="project-img-placeholder">🏥</div>
+            <div class="project-info">
+            <p class="project-type">Commercial</p>
+            <p class="project-name">Senthil Medical Centre & Hospital</p>
+            <p class="project-details">G+2 floors @6600 Sq ft</p>
+          </div>
+          </div>
+        </div>
+        <div class="card-back"></div>
+      </div>
+    </div>
+    <div class="project-card reveal">
+      <div class="project-content">
+      <div class="project-img-placeholder">🏡</div>
+      <div class="project-info">
+        <p class="project-type">Residential</p>
+        <p class="project-name">JB Farmhouse</p>
+      </div>
+      </div>
+    </div>
+    <div class="project-card reveal">
+      <div class="project-content">
+      <div class="project-img-placeholder">🏬</div>
+      <div class="project-info">
+        <p class="project-type">Residential</p>
+        <p class="project-name">Mr.Magudeshwaran Residence</p>
+      </div>
+      </div>
+    </div>
+    <div class="project-card reveal">
+      <div class="project-content">
+      <div class="project-img-placeholder">🏬</div>
+      <div class="project-info">
+        <p class="project-type">Residential</p>
+        <p class="project-name">Mrs.Ananda Nayaki Residence</p>
+      </div>
+      </div>
+    </div>
+    <div class="project-card reveal">
+      <div class="project-content">
+      <div class="project-img-placeholder">🏬</div>
+      <div class="project-info">
+        <p class="project-type">Residential</p>
+        <p class="project-name">Mr.Balakrishnan Residence</p>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="projects-cta reveal">
+    <a href="#contact" class="btn-primary">Start Your Project</a>
+  </div>
+</section>
+<!-- CONTACT -->
+<section id="contact">
+  <div class="reveal">
+    <p class="section-tag">Get In Touch</p>
+    <h2 class="section-title">Let's Build Something <span class="light-highlight">Great</span> Together</h2>
+    <div class="divider"></div>
+    <p>Have a project in mind? Reach out to us.</p>
+    <div class="contact-detail">
+      <span class="contact-detail-icon">📍</span>
+      <div class="contact-detail-text">
+        <h5>Location</h5>
+        <p>Diya Builders and Promotors,<br>
+          Durai Complex, Lakshimipuram, <br>
+          Palani, TamilNadu.</p>
+      </div>
+    </div>
+    <div class="contact-detail">
+      <span class="contact-detail-icon">📞</span>
+      <div class="contact-detail-text">
+        <h5>Phone</h5>
+        <p>+91 97906 50333 <br>
+        +91 87781 53394</p>
+      </div>
+    </div>
+    <div class="contact-detail">
+      <span class="contact-detail-icon">✉️</span>
+      <div class="contact-detail-text">
+        <h5>Email</h5>
+        <p>diyabuildersandpromotors@gmail.com<br>
+        erchinnaraj.civil@gmail.com</p>
+      </div>
+    </div>
+    <div class="contact-detail">
+      <span class="contact-detail-icon">🌐</span>
+      <div class="contact-detail-text">
+        <h5>Website</h5>
+        <p>https://diyabuilders.com</p>
+      </div>
+    </div>
+  </div>
+  <div class="reveal">
+    <div class="contact-form">
+      <div class="form-row">
+        <div class="form-field">
+          <label>Full Name</label>
+          <input type="text" placeholder="John Doe" />
+        </div>
+        <div class="form-field">
+          <label>Phone Number</label>
+          <input type="tel" placeholder="+91 98765 43210" />
+        </div>
+      </div>
+      <div class="form-field">
+        <label>Email Address</label>
+        <input type="email" placeholder="you@example.com" />
+      </div>
+      <div class="form-field">
+        <label>Project Type</label>
+        <select>
+          <option value="" disabled selected>Select a service</option>
+          <option>Residential Construction</option>
+          <option>Commercial Construction</option>
+          <option>Renovation & Retrofitting</option>
+          <option>Design & Planning</option>
+          <option>Project Management</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label>Your Message</label>
+        <textarea rows="4" placeholder="Tell us about your project..."></textarea>
+      </div>
+      <button class="btn-submit" onclick="handleSubmit()">Send Enquiry →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">DIYA BUILDERS</div>
+  <p>© 2026 DIYA BUILDERS. All Rights Reserved.</p>
+  <p>Building Trust, Creating Quality.</p>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 40);
+  });
+/*  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if(entry.isIntersecting){
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));*/
+
+  /*works for chrome and safari*/
+  document.querySelectorAll('.reveal').forEach((el, i) => {
+  el.style.animationDelay = (i * 0.1) + 's';
+});
+
+  function handleSubmit(){
+    alert('Thank you! We will get back to you within 24 hours.');
+  }
+</script>
+</body>
+</html>
